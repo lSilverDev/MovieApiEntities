@@ -4,8 +4,8 @@ namespace moviesAPI___Entities.Models
 {
     public class Movie
     {
-        [Required]
         [Key]
+        [Required]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Title is required")]
