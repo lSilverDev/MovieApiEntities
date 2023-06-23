@@ -11,6 +11,8 @@ builder.Services.AddDbContext<MovieContext>(opts => opts.UseMySql
     )
 );
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 // Add services to the container.
 
 builder.Services.AddControllers();
