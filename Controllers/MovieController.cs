@@ -21,7 +21,14 @@ namespace moviesAPI___Entities.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Adds a movie to the database
+        /// </summary>
+        /// <param name="filmeDto">Object with the necessary fields to create a movie</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">If the insertion is successful</response>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public IActionResult AddMovie([FromBody] CreateMovieDto movieDto)
         {
             Movie movie = _mapper.Map<Movie>(movieDto);
@@ -39,7 +46,7 @@ namespace moviesAPI___Entities.Controllers
         [HttpGet]
         public IActionResult GetMovies([FromQuery] int skip = 0, [FromQuery] int take = 25)
         {
-            return Ok(_context.Movies.Skip(skip).Take(take));
+            return Ok(_mapper.Map<List<ReadMovieDto>>(_context.Movies.Skip(skip).Take(take)));
         }
 
         [HttpGet("{id}")]
@@ -49,7 +56,9 @@ namespace moviesAPI___Entities.Controllers
 
             if(movie == null) return NotFound();
 
-            return Ok(movie);
+            var movieDto = _mapper.Map<ReadMovieDto>(movie);
+
+            return Ok(movieDto);
         }
 
         [HttpPut("{id}")]
@@ -92,6 +101,17 @@ namespace moviesAPI___Entities.Controllers
             return NoContent();
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult DeleteMovieById(int id)
+        {
+            var movie = _context.Movies.FirstOrDefault(movie => movie.Id == id);
 
+            if (movie == null) return NotFound();
+
+            _context.Remove(movie);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
