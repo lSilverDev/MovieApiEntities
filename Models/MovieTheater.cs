@@ -10,5 +10,9 @@ namespace moviesAPI___Entities.Models
 
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
+
+        public int AddressId { get; set; }
+
+        public virtual Address Address { get; set; }
     }
 }

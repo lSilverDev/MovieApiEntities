@@ -6,5 +6,7 @@ namespace moviesAPI___Entities.Data.Dtos
     {
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
+
+        public int AddressId { get; set; }
     }
 }

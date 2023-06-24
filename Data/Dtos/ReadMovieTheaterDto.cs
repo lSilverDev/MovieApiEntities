@@ -7,5 +7,7 @@ namespace moviesAPI___Entities.Data.Dtos
         public int Id { get; set; }
 
         public string Name { get; set; }
+
+        public ReadAddressDto ReadAddressDto { get; set; }
     }
 }

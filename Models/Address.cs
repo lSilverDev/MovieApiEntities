@@ -12,5 +12,7 @@ namespace moviesAPI___Entities.Models
         public string PublicPlace { get; set; }
 
         public int Number { get; set; }
+
+        public virtual MovieTheater MovieTheater { get; set; }
     }
 }
