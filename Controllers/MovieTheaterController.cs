@@ -59,8 +59,18 @@ namespace moviesAPI___Entities.Controllers
             return Ok(_mapper.Map<List<ReadMovieDto>>(_context.MovieTheaters.Skip(skip).Take(take)));
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
+        public IActionResult PutMovieTheater(int id, [FromBody] UpdateMovieTheaterDto movieTheaterDto)
+        {
+            var movieTheater = _context.MovieTheaters.FirstOrDefault(movieTheater => movieTheater.Id == id);
 
+            if (movieTheater == null) return NotFound();
+
+            _mapper.Map(movieTheaterDto, movieTheater);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
 
         [HttpPatch]
 
