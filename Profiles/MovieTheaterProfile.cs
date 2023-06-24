@@ -11,7 +11,9 @@ namespace moviesAPI___Entities.Profiles
             CreateMap<CreateMovieTheaterDto, MovieTheater>();
             CreateMap<UpdateMovieTheaterDto, MovieTheater>();
             CreateMap<MovieTheater, UpdateMovieTheaterDto>();
-            CreateMap<MovieTheater, ReadMovieTheaterDto>();
+            CreateMap<MovieTheater, ReadMovieTheaterDto>()
+                .ForMember(movieTheaterDto => movieTheaterDto.ReadAddressDto,
+                    opt => opt.MapFrom(movieTheater => movieTheater.Address));
         }
     }
 }

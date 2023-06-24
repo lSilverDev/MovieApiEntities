@@ -22,9 +22,9 @@ namespace moviesAPI___Entities.Controllers
         }
 
         /// <summary>
-        /// Adds a movie to the database
+        /// Adds a address to the database
         /// </summary>
-        /// <param name="AddressDto">Object with the necessary fields to create a movie</param>
+        /// <param name="AddressDto">Object with the necessary fields to create a addres</param>
         /// <returns>IActionResult</returns>
         /// <response code="201">If the insertion is successful</response>
         [HttpPost]

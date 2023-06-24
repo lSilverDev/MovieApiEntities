@@ -55,9 +55,9 @@ namespace moviesAPI___Entities.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllMovieTheater([FromQuery] int skip = 0, [FromQuery] int take = 25) 
+        public IActionResult GetAllMovieTheater() 
         {
-            return Ok(_mapper.Map<List<ReadMovieTheaterDto>>(_context.MovieTheaters.Skip(skip).Take(take)));
+            return Ok(_mapper.Map<List<ReadMovieTheaterDto>>(_context.MovieTheaters.ToList()));
         }
 
         [HttpPut("{id}")]
