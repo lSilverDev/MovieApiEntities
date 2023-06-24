@@ -42,7 +42,7 @@ namespace moviesAPI___Entities.Controllers
             );
         }
 
-        [HttpPost("{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetMovieTheaterById(int id) 
         {
             var movieTheater = _context.MovieTheaters.FirstOrDefault(movieTheater => movieTheater.Id == id);
@@ -73,7 +73,7 @@ namespace moviesAPI___Entities.Controllers
             return NoContent();
         }
 
-        [HttpPatch]
+        [HttpPatch("{id}")]
         public IActionResult patchMovieTheater(int id, JsonPatchDocument<UpdateMovieTheaterDto> patch) 
         {
             var movieTheater = _context.MovieTheaters.FirstOrDefault(movieTheater => movieTheater.Id == id);
