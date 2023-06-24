@@ -11,5 +11,6 @@ namespace moviesAPI___Entities.Data
         }
 
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<MovieTheater> MovieTheaters { get; set; }
     }
 }
