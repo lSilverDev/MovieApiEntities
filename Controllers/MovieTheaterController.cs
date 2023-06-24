@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using moviesAPI___Entities.Data;
 using moviesAPI___Entities.Data.Dtos;
@@ -73,7 +74,23 @@ namespace moviesAPI___Entities.Controllers
         }
 
         [HttpPatch]
+        public IActionResult patchMovieTheater(int id, JsonPatchDocument<UpdateMovieTheaterDto> patch) 
+        {
+            var movieTheater = _context.MovieTheaters.FirstOrDefault(movieTheater => movieTheater.Id == id);
 
+            if(movieTheater == null) return NotFound();
+
+            var movieTheaterToAtt = _mapper.Map<UpdateMovieTheaterDto>(movieTheater);
+
+            patch.ApplyTo(movieTheaterToAtt, ModelState);
+
+            if (!TryValidateModel(movieTheaterToAtt)) return ValidationProblem(ModelState);
+
+            _mapper.Map(movieTheaterToAtt, movieTheater);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteMovieTheaterById(int id)
