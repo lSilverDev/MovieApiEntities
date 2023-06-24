@@ -8,10 +8,10 @@ namespace moviesAPI___Entities.Profiles
     {
         public MovieTheaterProfile()
         {
-            CreateMap<CreateMovieTheaterDto, Movie>();
-            CreateMap<UpdateMovieTheaterDto, Movie>();
-            CreateMap<Movie, UpdateMovieTheaterDto>();
-            CreateMap<Movie, ReadMovieTheaterDto>();
+            CreateMap<CreateMovieTheaterDto, MovieTheater>();
+            CreateMap<UpdateMovieTheaterDto, MovieTheater>();
+            CreateMap<MovieTheater, UpdateMovieTheaterDto>();
+            CreateMap<MovieTheater, ReadMovieTheaterDto>();
         }
     }
 }
