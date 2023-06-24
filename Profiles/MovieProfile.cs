@@ -12,11 +12,6 @@ namespace moviesAPI___Entities.Profiles
             CreateMap<UpdateMovieDto, Movie>();
             CreateMap<Movie, UpdateMovieDto>();
             CreateMap<Movie, ReadMovieDto>();
-
-            CreateMap<CreateMovieTheaterDto, Movie>();
-            CreateMap<UpdateMovieTheaterDto, Movie>();
-            CreateMap<Movie, UpdateMovieTheaterDto>();
-            CreateMap<Movie, ReadMovieTheaterDto>();
         }
     }
 }
