@@ -13,5 +13,6 @@ namespace moviesAPI___Entities.Data
         public DbSet<Movie> Movies { get; set; }
         public DbSet<MovieTheater> MovieTheaters { get; set; }
         public DbSet<Address> Address { get; set; }
+        public DbSet<Session> Session { get; set; }
     }
 }
