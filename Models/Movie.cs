@@ -17,5 +17,7 @@ namespace moviesAPI___Entities.Models
         [Required(ErrorMessage = "Duration is required")]
         [Range(70, 600)]
         public int Duration { get; set; }
+
+        public virtual ICollection<Session> Sessions { get; set; }
     }
 }
