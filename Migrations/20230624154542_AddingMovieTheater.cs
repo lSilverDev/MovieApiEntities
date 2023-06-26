@@ -10,7 +10,7 @@ namespace moviesAPI___Entities.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MovieTheaters",
+                name: "MovieTheater",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -20,7 +20,7 @@ namespace moviesAPI___Entities.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovieTheaters", x => x.Id);
+                    table.PrimaryKey("PK_MovieTheater", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
         }
@@ -28,7 +28,7 @@ namespace moviesAPI___Entities.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MovieTheaters");
+                name: "MovieTheater");
         }
     }
 }

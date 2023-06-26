@@ -77,24 +77,18 @@ namespace moviesAPI___Entities.Migrations
                     b.HasIndex("AddressId")
                         .IsUnique();
 
-                    b.ToTable("MovieTheaters");
+                    b.ToTable("MovieTheater");
                 });
 
             modelBuilder.Entity("moviesAPI___Entities.Models.Session", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("MovieId")
+                    b.Property<int?>("MovieId")
                         .HasColumnType("int");
 
                     b.Property<int?>("MovieTheaterId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
+                    b.HasKey("MovieId", "MovieTheaterId");
 
                     b.HasIndex("MovieTheaterId");
 
@@ -122,7 +116,9 @@ namespace moviesAPI___Entities.Migrations
 
                     b.HasOne("moviesAPI___Entities.Models.MovieTheater", "MovieTheater")
                         .WithMany("Sessions")
-                        .HasForeignKey("MovieTheaterId");
+                        .HasForeignKey("MovieTheaterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Movie");
 

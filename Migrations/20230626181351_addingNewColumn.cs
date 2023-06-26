@@ -20,17 +20,17 @@ namespace moviesAPI___Entities.Migrations
                 column: "MovieTheaterId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Session_MovieTheaters_MovieTheaterId",
+                name: "FK_Session_MovieTheater_MovieTheaterId",
                 table: "Session",
                 column: "MovieTheaterId",
-                principalTable: "MovieTheaters",
+                principalTable: "MovieTheater",
                 principalColumn: "Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Session_MovieTheaters_MovieTheaterId",
+                name: "FK_Session_MovieTheater_MovieTheaterId",
                 table: "Session");
 
             migrationBuilder.DropIndex(

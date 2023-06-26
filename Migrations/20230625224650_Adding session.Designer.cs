@@ -78,7 +78,7 @@ namespace moviesAPI___Entities.Migrations
                     b.HasIndex("AddressId")
                         .IsUnique();
 
-                    b.ToTable("MovieTheaters");
+                    b.ToTable("MovieTheater");
                 });
 
             modelBuilder.Entity("moviesAPI___Entities.Models.Session", b =>

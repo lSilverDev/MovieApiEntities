@@ -11,8 +11,8 @@ using moviesAPI___Entities.Data;
 namespace moviesAPI___Entities.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20230626181351_addingNewColumn")]
-    partial class addingNewColumn
+    [Migration("20230626184353_MovieAndMovieTheater")]
+    partial class MovieAndMovieTheater
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,19 +84,13 @@ namespace moviesAPI___Entities.Migrations
 
             modelBuilder.Entity("moviesAPI___Entities.Models.Session", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("MovieId")
+                    b.Property<int?>("MovieId")
                         .HasColumnType("int");
 
                     b.Property<int?>("MovieTheaterId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
+                    b.HasKey("MovieId", "MovieTheaterId");
 
                     b.HasIndex("MovieTheaterId");
 
@@ -124,7 +118,9 @@ namespace moviesAPI___Entities.Migrations
 
                     b.HasOne("moviesAPI___Entities.Models.MovieTheater", "MovieTheater")
                         .WithMany("Sessions")
-                        .HasForeignKey("MovieTheaterId");
+                        .HasForeignKey("MovieTheaterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Movie");
 

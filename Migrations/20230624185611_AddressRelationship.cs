@@ -10,20 +10,20 @@ namespace moviesAPI___Entities.Migrations
         {
             migrationBuilder.AddColumn<int>(
                 name: "AddressId",
-                table: "MovieTheaters",
+                table: "MovieTheater",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.CreateIndex(
-                name: "IX_MovieTheaters_AddressId",
-                table: "MovieTheaters",
+                name: "IX_MovieTheater_AddressId",
+                table: "MovieTheater",
                 column: "AddressId",
                 unique: true);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_MovieTheaters_Address_AddressId",
-                table: "MovieTheaters",
+                name: "FK_MovieTheater_Address_AddressId",
+                table: "MovieTheater",
                 column: "AddressId",
                 principalTable: "Address",
                 principalColumn: "Id",
@@ -33,16 +33,16 @@ namespace moviesAPI___Entities.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_MovieTheaters_Address_AddressId",
-                table: "MovieTheaters");
+                name: "FK_MovieTheater_Address_AddressId",
+                table: "MovieTheater");
 
             migrationBuilder.DropIndex(
-                name: "IX_MovieTheaters_AddressId",
-                table: "MovieTheaters");
+                name: "IX_MovieTheater_AddressId",
+                table: "MovieTheater");
 
             migrationBuilder.DropColumn(
                 name: "AddressId",
-                table: "MovieTheaters");
+                table: "MovieTheater");
         }
     }
 }

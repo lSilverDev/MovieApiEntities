@@ -32,7 +32,7 @@ namespace moviesAPI___Entities.Controllers
         {
             MovieTheater movieTheater = _mapper.Map<MovieTheater>(MovieTheaterDto);
 
-            _context.MovieTheaters.Add(movieTheater);
+            _context.MovieTheater.Add(movieTheater);
             _context.SaveChanges();
 
             return CreatedAtAction(
@@ -45,7 +45,7 @@ namespace moviesAPI___Entities.Controllers
         [HttpGet("{id}")]
         public IActionResult GetMovieTheaterById(int id) 
         {
-            var movieTheater = _context.MovieTheaters.FirstOrDefault(movieTheater => movieTheater.Id == id);
+            var movieTheater = _context.MovieTheater.FirstOrDefault(movieTheater => movieTheater.Id == id);
 
             if (movieTheater == null) return NotFound();
 
@@ -57,13 +57,13 @@ namespace moviesAPI___Entities.Controllers
         [HttpGet]
         public IActionResult GetAllMovieTheater() 
         {
-            return Ok(_mapper.Map<List<ReadMovieTheaterDto>>(_context.MovieTheaters.ToList()));
+            return Ok(_mapper.Map<List<ReadMovieTheaterDto>>(_context.MovieTheater.ToList()));
         }
 
         [HttpPut("{id}")]
         public IActionResult PutMovieTheater(int id, [FromBody] UpdateMovieTheaterDto movieTheaterDto)
         {
-            var movieTheater = _context.MovieTheaters.FirstOrDefault(movieTheater => movieTheater.Id == id);
+            var movieTheater = _context.MovieTheater.FirstOrDefault(movieTheater => movieTheater.Id == id);
 
             if (movieTheater == null) return NotFound();
 
@@ -76,7 +76,7 @@ namespace moviesAPI___Entities.Controllers
         [HttpPatch("{id}")]
         public IActionResult patchMovieTheater(int id, JsonPatchDocument<UpdateMovieTheaterDto> patch) 
         {
-            var movieTheater = _context.MovieTheaters.FirstOrDefault(movieTheater => movieTheater.Id == id);
+            var movieTheater = _context.MovieTheater.FirstOrDefault(movieTheater => movieTheater.Id == id);
 
             if(movieTheater == null) return NotFound();
 
@@ -95,7 +95,7 @@ namespace moviesAPI___Entities.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteMovieTheaterById(int id)
         {
-            var movieTheater = _context.MovieTheaters.FirstOrDefault(movieTheater => movieTheater.Id == id);
+            var movieTheater = _context.MovieTheater.FirstOrDefault(movieTheater => movieTheater.Id == id);
 
             if (movieTheater == null) return NotFound();
 
