@@ -9,5 +9,7 @@ namespace moviesAPI___Entities.Data.Dtos
         public string Name { get; set; }
 
         public ReadAddressDto ReadAddressDto { get; set; }
+
+        public ICollection<ReadSessionDto> Sessions { get; set; }
     }
 }
